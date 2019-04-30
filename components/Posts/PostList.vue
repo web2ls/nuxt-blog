@@ -1,19 +1,20 @@
 <template>
-    <div class="home-page">
-        <section class="intro">
-            <h1>Get the latest tech news!</h1>
-        </section>
+    <div class="posts-page">
 
-        <PostList />
+        <section class="post-list">
+          <PostPreview id="1" thumbnail="https://webfrontier.ru/images/slide1.jpg" title="Post Number One" previewText="dfdsfdsfdsfdsfdsfdsfdsfdsfds" />
+          <PostPreview id="2" thumbnail="https://webfrontier.ru/images/slide2.jpg" title="Post Number Three" previewText="dfddfdf" />
+          <PostPreview id="3" thumbnail="https://webfrontier.ru/images/slide3.jpg" title="Post Number Four" previewText="dfqwrertsfdsfds" />
+        </section>
     </div>
 </template>
 
 <script>
-import PostList from "~/components/Posts/PostList.vue";
+import PostPreview from "~/components/Posts/PostPreview.vue";
 
 export default {
   components: {
-    PostList
+    PostPreview
   }
 };
 </script>
@@ -50,7 +51,7 @@ export default {
   }
 }
 
-.featured-posts {
+.post-list {
   display: flex;
   padding: 20px;
   box-sizing: border-box;
