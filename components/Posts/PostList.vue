@@ -2,9 +2,9 @@
     <div class="posts-page">
 
         <section class="post-list">
-          <PostPreview id="1" thumbnail="https://webfrontier.ru/images/slide1.jpg" title="Post Number One" previewText="dfdsfdsfdsfdsfdsfdsfdsfdsfds" />
-          <PostPreview id="2" thumbnail="https://webfrontier.ru/images/slide2.jpg" title="Post Number Three" previewText="dfddfdf" />
-          <PostPreview id="3" thumbnail="https://webfrontier.ru/images/slide3.jpg" title="Post Number Four" previewText="dfqwrertsfdsfds" />
+          <PostPreview id="1" :is-admin = "isAdmin" thumbnail="https://webfrontier.ru/images/slide1.jpg" title="Post Number One" previewText="dfdsfdsfdsfdsfdsfdsfdsfdsfds" />
+          <PostPreview id="2" :is-admin = "isAdmin" thumbnail="https://webfrontier.ru/images/slide2.jpg" title="Post Number Three" previewText="dfddfdf" />
+          <PostPreview id="3" :is-admin = "isAdmin" thumbnail="https://webfrontier.ru/images/slide3.jpg" title="Post Number Four" previewText="dfqwrertsfdsfds" />
         </section>
     </div>
 </template>
@@ -15,6 +15,12 @@ import PostPreview from "~/components/Posts/PostPreview.vue";
 export default {
   components: {
     PostPreview
+  },
+  props: {
+    isAdmin: {
+      type: Boolean,
+      default: false
+    }
   }
 };
 </script>

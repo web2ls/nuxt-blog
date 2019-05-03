@@ -4,7 +4,7 @@
             <h1>Get the latest tech news!</h1>
         </section>
 
-        <PostList />
+        <PostList isAdmin />
     </div>
 </template>
 
@@ -14,7 +14,8 @@ import PostList from "~/components/Posts/PostList.vue";
 export default {
   components: {
     PostList
-  }
+  },
+  layout: 'admin'
 };
 </script>
 
