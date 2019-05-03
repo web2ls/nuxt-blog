@@ -1,14 +1,14 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1>Title of the post</h1>
+      <h1>{{loadedPost.title}}</h1>
       <div class="post-details">
-        <div>Last updated DATE</div>
-        <div>Written by NAME</div>
+        <div>Last update is {{loadedPost.updatedDate}}</div>
+        <div>Written by {{loadedPost.author}}</div>
       </div>
 
       <div class="content">
-        Post content
+        {{loadedPost.content}}
       </div>
 
       <div class="post-feedback">
@@ -20,7 +20,24 @@
 
 <script>
 export default {
-
+    asyncData(context, callback) {
+        setTimeout(() => {
+            callback(null, { 
+                loadedPost: { 
+                    id: 1, 
+                    title: 'Post One', 
+                    author: 'Alex',
+                    previewText: 'Text constent', 
+                    thumbnail: 'https://webfrontier.ru/images/slide1.jpg', 
+                    updatedDate: new Date(), 
+                    content: 'Some dummy text' 
+                }
+             })
+        }, 1000)
+    },
+    data() {
+        loadedPost: {}
+    },
 }
 </script>
 

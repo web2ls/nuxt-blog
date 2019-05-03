@@ -1,11 +1,11 @@
 <template>
-    <div class="home-page">
-        <section class="intro">
-            <h1>Get the latest tech news!</h1>
-        </section>
+  <div class="home-page">
+    <section class="intro">
+      <h1>Get the latest tech news!</h1>
+    </section>
 
-        <PostList isAdmin />
-    </div>
+    <PostList :posts="loadedPosts"/>
+  </div>
 </template>
 
 <script>
@@ -15,7 +15,52 @@ export default {
   components: {
     PostList
   },
-  layout: 'admin'
+  layout: "admin",
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({
+          loadedPosts: [
+            {
+              id: 1,
+              title: "Post One",
+              previewText: "Text constent",
+              thumbnail: "https://webfrontier.ru/images/slide1.jpg"
+            },
+            {
+              id: 2,
+              title: "Post two",
+              previewText: "Text constent number tow",
+              thumbnail: "https://webfrontier.ru/images/slide2.jpg"
+            },
+            {
+              id: 3,
+              title: "Post three",
+              previewText: "Text constent threee",
+              thumbnail: "https://webfrontier.ru/images/slide3.jpg"
+            },
+            {
+              id: 3,
+              title: "Post three",
+              previewText: "Text constent threee",
+              thumbnail: "https://webfrontier.ru/images/slide3.jpg"
+            }
+          ]
+        });
+      }, 2000);
+    })
+      .then(data => {
+        return data;
+      })
+      .catch(error => {
+        context.error(new Error());
+      });
+  },
+  data() {
+    return {
+      loadedPosts: []
+    };
+  }
 };
 </script>
 
@@ -24,7 +69,7 @@ export default {
   height: 300px;
   position: relative;
   padding: 30px;
-  background-image: url('~assets/images/main-page-background.jpg');
+  background-image: url("~assets/images/main-page-background.jpg");
   box-sizing: border-box;
   background-position: center;
   background-size: cover;

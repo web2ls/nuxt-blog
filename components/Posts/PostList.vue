@@ -1,12 +1,17 @@
 <template>
-    <div class="posts-page">
-
-        <section class="post-list">
-          <PostPreview id="1" :is-admin = "isAdmin" thumbnail="https://webfrontier.ru/images/slide1.jpg" title="Post Number One" previewText="dfdsfdsfdsfdsfdsfdsfdsfdsfds" />
-          <PostPreview id="2" :is-admin = "isAdmin" thumbnail="https://webfrontier.ru/images/slide2.jpg" title="Post Number Three" previewText="dfddfdf" />
-          <PostPreview id="3" :is-admin = "isAdmin" thumbnail="https://webfrontier.ru/images/slide3.jpg" title="Post Number Four" previewText="dfqwrertsfdsfds" />
-        </section>
-    </div>
+  <div class="posts-page">
+    <section class="post-list">
+      <PostPreview
+        v-for="post of posts"
+        :key="post.id"
+        :id="post.id"
+        :is-admin="isAdmin"
+        :thumbnail="post.thumbnail"
+        :title="post.title"
+        :previewText="post.previewText"
+      />
+    </section>
+  </div>
 </template>
 
 <script>
@@ -20,6 +25,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 };
@@ -30,7 +39,7 @@ export default {
   height: 300px;
   position: relative;
   padding: 30px;
-  background-image: url('~assets/images/main-page-background.jpg');
+  background-image: url("~assets/images/main-page-background.jpg");
   box-sizing: border-box;
   background-position: center;
   background-size: cover;
