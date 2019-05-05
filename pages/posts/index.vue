@@ -24,49 +24,9 @@ export default {
   components: {
     PostPreview
   },
-  fetch(context) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({
-          previewPosts: [
-            {
-              id: 1,
-              title: "Post One",
-              previewText: "Text constent",
-              thumbnail: "https://webfrontier.ru/images/slide1.jpg"
-            },
-            {
-              id: 2,
-              title: "Post two",
-              previewText: "Text constent number tow",
-              thumbnail: "https://webfrontier.ru/images/slide2.jpg"
-            },
-            {
-              id: 3,
-              title: "Post three",
-              previewText: "Text constent threee",
-              thumbnail: "https://webfrontier.ru/images/slide3.jpg"
-            },
-            {
-              id: 3,
-              title: "Post four",
-              previewText: "Text constent threee",
-              thumbnail: "https://webfrontier.ru/images/slide3.jpg"
-            }
-          ]
-        });
-      }, 2000);
-    })
-      .then(data => {
-        context.store.commit('setPosts', data.previewPosts);
-      })
-      .catch(error => {
-        context.error(new Error());
-      });
-  },
   computed: {
-      previewPosts() {
-          return this.$store.getters.loadedPosts;
+    previewPosts() {
+      return this.$store.getters.loadedPosts;
     }
   }
 };
