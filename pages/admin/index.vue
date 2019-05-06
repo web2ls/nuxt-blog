@@ -12,13 +12,8 @@
 </template>
 
 <script>
-import PostList from '@/components/Posts/PostList.vue';
-import AppButton from '@/components/UI/AppButton.vue';
 
 export default {
-  components: {
-    PostList
-  },
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;
