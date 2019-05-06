@@ -18,7 +18,7 @@ export default {
     methods: {
       onSubmitted(payload) {
         console.log(payload);
-        axios.post('https://nuxt-blog-ecb77.firebaseio.com/posts.json', payload)
+        axios.post('https://nuxt-blog-ecb77.firebaseio.com/posts.json', {...payload, updatedDate: new Date()})
         .then(result => {
           console.log(result);
         })
