@@ -17,14 +17,10 @@ export default {
     layout: 'admin',
     methods: {
       onSubmitted(payload) {
-        console.log(payload);
-        axios.post('https://nuxt-blog-ecb77.firebaseio.com/posts.json', {...payload, updatedDate: new Date()})
-        .then(result => {
-          console.log(result);
-        })
-        .catch(error => {
-          console.log(error);
-        })
+          this.$store.dispatch('addPost', payload)
+          .then(createdPost => {
+            this.$router.push('/admin');
+          })
       }
     }
 };
